@@ -33,13 +33,13 @@ public class BrowserAutomation {
 		PrivateKey convertedPrivateKey = privateKeyFromString(privateKey);
 
 		// Decrypt the encrypted string using the converted private key
-		//String decryptedUsernameText = decrypt(encUsername, convertedPrivateKey);
+		String decryptedUsernameText = decrypt(encUsername, convertedPrivateKey);
 		String decryptedPasswordText = decrypt(encPassword, convertedPrivateKey);
 
 		 //System.out.println("************ " + decryptedUsernameText + " **********");
-		 System.out.println("************ " + decryptedPasswordText + " **********");
+		 //System.out.println("************ " + decryptedPasswordText + " **********");
 
-		username.sendKeys("tomsmith");
+		username.sendKeys(decryptedUsernameText);
 		password.sendKeys(decryptedPasswordText);
 
 		loginButton.click();
